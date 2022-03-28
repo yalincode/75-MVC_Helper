@@ -1,0 +1,42 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>RenderPartial</title>
+</head>
+<body>
+    @*Html.RenderPartial metodu çağrıldığı sayfanın TextWriter ını kullanılır Yani doğrudan http response streame yazılır. Bu yüzden Html.Partal metodundan daha hızlıdır.
+
+    Html.RenderPartial metodu void döndürür.Kullanımı kolaydır ve action oluşturmaya gerek yoktur. Html.PartialRender metodu süslü parantezler içerisinde tanımlanır.*@
+
+    @{
+        Html.RenderPartial("_Partial");
+    }
+
+
+    <br />
+
+    @*2.Parametre => _partial içerisinde bir değer yakalamak için kullanılır*@
+    @{ 
+        Html.RenderPartial("_Partial", 321);
+    }
+<br />
+      @*2.Paramerte => viewdata şeklinde geri dönüş yapar*@
+    @{ 
+        Html.RenderPartial("_PartialViewDictionaryModel", new ViewDataDictionary() { { "Sayılar", "123456789" }, { "Harfler", "abcdgef" } });
+    }
+
+<br />  
+
+    @{ 
+        Html.RenderPartial("_PartialViewDictionaryModel", 321,new ViewDataDictionary() { { "Sayılar", "123456789" }, { "Harfler", "abcdgef" } });
+    }
+
+</body>
+</html>

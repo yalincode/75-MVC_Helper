@@ -1,0 +1,26 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AntiforgeryToken</title>
+</head>
+<body>
+    <!--AntiForgeryToken web projelerinde bir nevi otomatik captcha kontrolü gibi düşünebiliriz. Form üzerinde __requestVerificationToken ismi ile hidden input şeklinde tutulur. Bu değer server tarafından üretilir ve formda hidden input üzerinde tutulur. form doldurulup server tarafında gönderildiğinde üretilen ve form tarafından gönderilen değerler kontrol edilir.
+    Form üzerinde @Html.AntiForgeryToken() şeklinde Mvc helper metodu ile eklenir.Bu helper metodu form içerisinde aşağıdaki gibi bir hidden input ekler.
+
+    Sayfa Post olduğunda Action üzerindeki Attribute içerisindeki oluşturulan key kontrol edilir. Eğer gönderilen key uyuşmuyor ise işlemi gerçekleştirmeyecektir. Sayfa her yenilendiğinde içerisindeki değer yenilenecektir.*-->
+    <br />
+    <br />
+    <br />
+    <br />
+    @Html.AntiForgeryToken()
+    @*<input name="__RequestVerificationToken" type="hidden" value="YuaxK-zQNIdOQ_H21jhnf9X2WzcKoo58-W6L_JXs_huLRc4xn9ZuepaLq5Rig8eKwwvw2HMu8EjW4IEg48SWDLJTh3ZlmNLO3XEMTJSeKEg1">*@
+    @*Form elemnti içerisine eklenmek zorundadaır!!*@
+</body>
+</html>

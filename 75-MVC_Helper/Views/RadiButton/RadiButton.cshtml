@@ -1,0 +1,39 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>RadiButton</title>
+</head>
+<body>
+    <input type="radio" name="rbDeneme" value="" />
+
+    Yazilim Dili: @Html.RadioButton("yazilim", true)
+    @*İlk isim aynı olduğu zaman bu buttonlar grup şeklinde çalışabilir*@
+
+    Yazilim Dili: @Html.RadioButton("yazilim", 1, true)
+    <br />
+    c# : @Html.RadioButton("yazilim", 1, false)
+    Delphi : @Html.RadioButton("yazilim", 2, false)
+    Js : @Html.RadioButton("yazilim", 3, false)
+    css : @Html.RadioButton("yazilim", 4, false)
+
+<br />
+    Bayan: @Html.RadioButton("yazilim",1,new {@style="margin:10px;"})
+<br />
+
+    Erkek: @Html.RadioButton("yazilim",1,new Dictionary<string, object>() { { "style","marging:10px;"} })
+
+<br />
+
+    @Html.RadioButton("yazilim",1,true,new {@class="renk"})
+<br />
+    @Html.RadioButton("yazilim",1,true,new Dictionary<string, object>() { { "class","renk"} })
+
+</body>
+</html>

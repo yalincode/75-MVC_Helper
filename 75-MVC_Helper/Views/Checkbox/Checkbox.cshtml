@@ -1,0 +1,44 @@
+﻿@model _75_MVC_Helper.Models.Personal
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Checkbox</title>
+</head>
+<body>
+    @*<input type="checkbox" name="name" value="" />*@
+    @*"id" ve "name" attribute değerleri için parametre*@
+    @*Not => valueType tipindeki bir değer ile eşleştirme olursa data-val-required="The Cinsiyet field is required" şeklinde kontrol otomatik eklenecektir.*@
+
+    Cinsiyet : @Html.CheckBox("Gender")
+    @*<input data-val="true" data-val-required="Gender alanı gereklidir." id="Gender" name="Gender" type="checkbox" value="true">*@
+
+    @*2.Kullanımı*@
+    @*1.Parametre => "id" ve "name" attribute değerleri için parametre*@
+    @*2.Parametre => isChecked parametresi default değeri temsil eder*@
+
+    Cinsiyet: @Html.CheckBox("Gender", true);
+
+    @*3.Kullanımı*@
+    @*1.Parametre => "id" ve "name" attribute değerleri için parametre*@
+    @*2.Parametre => htmlattribute değeri vermek için*@
+    Cinsiyet: @Html.CheckBox("Gender", new { @class = "renk" })
+
+    @*4.Kullanımı*@
+    @Html.CheckBox("Gender",new Dictionary<string, object>() { { "style","color:red"} })
+
+    @*5.Kullanımı*@
+    @Html.CheckBox("Gender",true,new {@class="renk"})
+
+    @*6.Kullanımı*@
+    @Html.CheckBox("Gender",true, new Dictionary<string, object>() { { "style", "color:red" } })
+
+    
+</body>
+</html>

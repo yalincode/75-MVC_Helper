@@ -1,0 +1,25 @@
+﻿@model _75_MVC_Helper.Models.Yazilim
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>RadioButtonFor</title>
+</head>
+<body>
+    C: @Html.RadioButtonFor(t => t.Key, "C")
+    <br />
+    C#: @Html.RadioButtonFor(t => t.Key, "C#")
+    @*<input id="Key" name="Key" type="radio" value="C#">*@
+    <HR />
+
+    @Html.RadioButtonFor(t => t.Key, "C", new { @class = "renk" })
+    <hr />
+    @Html.RadioButtonFor(t => t.Key, "C", new Dictionary<string, object>() { { "class", "renk" } })
+    @*<input class="renk" id="Key" name="Key" type="radio" value="C">*@
+</body>
+</html>

@@ -1,0 +1,85 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ActionLink</title>
+</head>
+<body>
+    @*Html.ActionLink() => <a href="#">content</a> etiketinin karşılığıdır.*@
+
+    @*1. Kullanımı*@
+    @*1.Parametre => Link üzerinde görünecek string bilgisi*@
+    @*2.Parametre => Aynı controller üzerindeki gidilecek actionname*@
+    @Html.ActionLink("AnaSayfa", "Index")
+    @*<a href="/ActionLink">AnaSayfa</a>*@
+    <br />
+    @*2.Kullanımı*@
+    @Html.ActionLink("Anasayfa", "Index", new { id = 1 })
+    @*Sayfa çıktısı*@
+    @*<a href="/ActionLink/Index/1">Anasayfa</a>*@
+    <br />
+    @*3.Kullanımı*@
+    @*3.Parametre => Route value değeri RouteValueDictionary şeklinde verilebilir.*@
+    @Html.ActionLink("Anasayfa", "Index", new RouteValueDictionary(new { id = 1 }))
+    <br />
+    @*4.Kullanım*@
+    @*1.Parametre => link üzerinde gözükjecek string bilgisi*@
+    @*2.Parametre => ActionName farklı controller üzerindeki action name*@
+    @*3.Parametre => Yönlenmek istenen controller name*@
+    @Html.ActionLink("Textbox Controller Yönlendir", "Textbox", "Textbox")
+
+    @*5.Kullanımı*@
+    @*1.Parametre => Link üzerinde görünecek string bilgisi*@
+    @*2.Parametre => Aynı controller üzerindeki gidilecek actionname*@
+    @*3.Parametre => url de gönderilmek istenen id*@
+    @*4.Parametre => html atribute değerini belirleyebilmemiz için gerekli alan*@
+    @Html.ActionLink("Anasayfa", "Index", new { id = 1 }, new { @class = "link-text" })
+    <br />
+    @*6.Kullanımı*@
+    @*1.Parametre => Link üzerinde görünecek string bilgisi*@
+    @*2.Parametre => Aynı controller üzerindeki gidilecek actionname*@
+    @*3.Parametre => Route value şeklinde id*@
+    @*4.Parametre => Birden çok atribute göndermek için dictionary*@
+    @Html.ActionLink("Anasayfa", "Index", new RouteValueDictionary(new { id = 1 }), new Dictionary<string, object>() { { "style", "color:red" } })
+    <br />
+    @*7.Kullanımı*@
+    @*1.Parametre => Link üzerinde görünecek string bilgisi*@
+    @*2.Parametre => Aynı controller üzerindeki gidilecek actionname*@
+    @*3.Parametre => Başka controllera gidecekse o controllerın name i*@
+    @*4.Parametre => Url üzerinden parametre göndermek için id*@
+    @*5.Parametre => html atribute için gerekli alan*@
+    @Html.ActionLink("Anasayfa", "Index", "Customer", new { id = 1 }, new { @style = "color:red" })
+    <br />
+    @*8.Kullanımı*@
+    @Html.ActionLink("Anasayfa", "Index", "Customer", new RouteValueDictionary(new { CategoryId = 1, UrunId = 2 }), new Dictionary<string, object>() { { "id", "CategoryId" }, { "style", "color:red;" } })
+    @*<a href="/customer?CategoryId=1&amp;UrunId=2" id="CategoryId" style="color:red;">Anasayfa</a>*@
+    <br />
+    @*9.Kullanımı*@
+    @*1.Parametre => Link üzerinde görünecek string bilgisi*@
+    @*2.Parametre => Aynı controller üzerindeki gidilecek actionname*@
+    @*3.Parametre => Başka controllera gidecekse o controllerın name i*@
+    @*4.Parametre => Hangi protokol üzerinden adrese gidecek http veya https*@
+    @*5.Parametre => Site url*@
+    @*6.Parametre => Tıklandığında hangi alana gidecek*@
+    @*7.Parametre => url üzerinden parametre olarak id gönderilmek istenirse*@
+    @*8.Parametre => Html atribute değerini belirlememiz için alan*@
+    @Html.ActionLink("BilgeAdam", "Index", "Deneme", "https", "www.bilgeadam.com", "row", new { id = 1 }, new { @class = "link" })
+    <br />
+    @*10.Kullanımı*@
+    @*1.Parametre => Link üzerinde görünecek string bilgisi*@
+    @*2.Parametre => Aynı controller üzerindeki gidilecek actionname*@
+    @*3.Parametre => Başka controllera gidecekse o controllerın name i*@
+    @*4.Parametre => Hangi protokol üzerinden adrese gidecek http veya https*@
+    @*5.Parametre => Site url*@
+    @*6.Parametre => Tıklandığında hangi alana gidecek*@
+    @*7.Parametre => url üzerinden parametre olarak id gönderilmek istenirse*@
+    @*8.Parametre => birden fazla attiribute değeri için dictionary kullanılır*@
+    @Html.ActionLink("BilgeAdam", "Index", "Deneme", "https", "www.bilgeadam.com", "row", new RouteValueDictionary(new { id = 1 }), new Dictionary<string, object>() { { "style", "color:red;" } })
+</body>
+</html>

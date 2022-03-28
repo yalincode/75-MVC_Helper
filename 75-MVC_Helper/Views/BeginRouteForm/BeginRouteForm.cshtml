@@ -1,0 +1,47 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>BeginRouteForm</title>
+</head>
+<body>
+
+    @* Html.BeginRouteForm() metodu RouteConfig içerisinde custom olarak hazırladığınız Routlar üzerinden sayfalara  ulaşmanızı sağlar.
+        not=>route name verilmez ise işlemi ilk başta hangi route varsa ona yönlendirir.
+
+        Örnek Route için App_Start içerisinde RouteConfig classını inceleyiniz. *@
+    @using (Html.BeginRouteForm("customer"))
+    {
+        <input type="submit" name="name" value="Postback Yap" />
+    }
+
+
+    @* Bir sürü kullanımı var tek tek bakılabilir*@
+    @using (Html.BeginRouteForm(new { id = 1 }))
+    {
+        <input type="submit" name="name" value="Postback Yap" />
+    }
+
+    @using (Html.BeginRouteForm("customer-page", new { asd = 1 }))
+    {
+        <input type="submit" name="name" value="Postback Yap" />
+    }
+
+    @using (Html.BeginRouteForm("customer-page", new RouteValueDictionary() { { "asd", 0 } }))
+    {
+        <input type="submit" name="name" value="Postback Yap" />
+    }
+
+    @using (Html.BeginRouteForm("customer-page", FormMethod.Post,new {@class="deneme"}))
+    {
+        <input type="submit" name="name" value="Postback Yap" />
+    }
+
+</body>
+</html>

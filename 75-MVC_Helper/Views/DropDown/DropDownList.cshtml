@@ -1,0 +1,74 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DropDownList</title>
+</head>
+<body>
+    @Html.DropDownList("SehirId") @*Bize select+option html elemntlerini oluşturur ViewBag i verilen isme göre arar varsa otomatikman datayı taşır*@
+
+    @Html.DropDownList("SehirId", "Lütfen Seçiniz") @*Otomatikman default bir option parametresi ekler*@
+
+    @Html.DropDownList("SehirId", new List<SelectListItem>() {
+    new SelectListItem() { Value="1",Text="Html"},
+    new SelectListItem() { Value="2",Text="css"} ,
+    new SelectListItem() { Value="3",Text="js"}
+    })
+
+
+    @Html.DropDownList("SehirId", new List<SelectListItem>()
+    {
+        new SelectListItem() { Value="1",Text="Html"},
+        new SelectListItem() { Value="2",Text="css"} ,
+        new SelectListItem() { Value="3",Text="js"}
+    }
+        , new { @style = "color:red" })
+
+    <br />
+
+    @Html.DropDownList("SehirId", new List<SelectListItem>()
+    {
+        new SelectListItem() { Value="1",Text="Html"},
+        new SelectListItem() { Value="2",Text="css"} ,
+        new SelectListItem() { Value="3",Text="js"}
+    }
+        , "Lütfen Seçiniz")
+
+    <br />
+    @Html.DropDownList("SehirId", new List<SelectListItem>()
+    {
+        new SelectListItem() { Value="1",Text="Html"},
+        new SelectListItem() { Value="2",Text="css"} ,
+        new SelectListItem() { Value="3",Text="js"}
+    }
+        , new Dictionary<string, object>() { { "style", "color:red;" } })
+
+    <br />
+
+    @Html.DropDownList("SehirId", new List<SelectListItem>()
+    {
+        new SelectListItem() { Value="1",Text="Html"},
+        new SelectListItem() { Value="2",Text="css"} ,
+        new SelectListItem() { Value="3",Text="js"}
+    }
+        , "Lütfen Seçiniz", new { @class = "renk" })
+
+    <br />
+
+    @Html.DropDownList("SehirId", new List<SelectListItem>()
+    {
+        new SelectListItem() { Value="1",Text="Html"},
+        new SelectListItem() { Value="2",Text="css"} ,
+        new SelectListItem() { Value="3",Text="js"}
+    }
+        , "Lütfen Seçiniz", new Dictionary<string, object>() { { "style", "color:red;" } })
+
+
+</body>
+</html>

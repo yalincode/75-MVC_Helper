@@ -1,0 +1,48 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Action</title>
+</head>
+<body>
+
+    @*Html.Action metodu view i htm encoded string olarak çözümler.
+
+        Kullanım Olarak; tanımlana partial view controller içinde action ı olmak zorundadır. Html.Partial() dan farkı; Html.Action() sizden bir action ve biew isterken,Html.Partial ın Action'ı olma zorunluluğu yokturz
+
+        Not:Eğer göstermek istediğiniz Action "ActionResult" olarak tanılı ise, tüm tagler ile yüklenir. PartialViewResul döner ise sadece sizin içerisinde tanımladığnız bölümler görünecektir.*@
+
+    @*1.Kullanımı*@
+    @*Aynı controller içerisindeki action adını verirseniz o action sayfa içerisinde konumlandırılacaktır.*@
+    @Html.Action("_PartialAction")
+
+
+    @*2.Kullanım*@
+    @*1.Parametre => Aynı controller içerisinde ki action adı*@
+    @*2.Parametre => object şeklinde bizden routeValue istiyor.*@
+    @Html.Action("_PartialRouteValue", new { Id = 1 })
+
+    @*3.Kullanımı*@
+    @*1.Parametre => Aynı controller içerisinde ki action adı*@
+    @*2.Parametre => routevalue dictionary şeklinde de gösterilebilir.*@
+    @Html.Action("_PartialRouteValue", new RouteValueDictionary(new { id = 1 }))
+
+    @*4.Kullanımı*@
+    @*1.Parametre => Aynı controller içerisinde ki action adı*@
+    @*2.Parametre => Controller ismi yazılırı ve nerden geleceği belirtilmiş olur*@
+    @Html.Action("_PartialAction", "Help")
+
+    @*5.Kullanımı*@
+    @Html.Action("_PartialRouteValue", "Help", new {id=3})
+
+    @*6.Kullanımı*@
+    @Html.Action("_PartialRouteValue","Help",new RouteValueDictionary(new {id=1}))
+
+</body>
+</html>

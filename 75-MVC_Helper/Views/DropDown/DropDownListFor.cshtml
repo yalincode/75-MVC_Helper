@@ -1,0 +1,63 @@
+﻿@model _75_MVC_Helper.Models.Sehir
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DropDownListFor</title>
+</head>
+<body>
+
+    @Html.DropDownListFor(t => t.Id, new List<SelectListItem>()
+{
+    new SelectListItem(){Value="1",Text="Ankara"},
+    new SelectListItem(){Value="2",Text="Bursa"},
+    new SelectListItem(){Value="3",Text="İstanbul"}
+})
+
+    <br />
+
+    @Html.DropDownListFor(t => t.Id, new List<SelectListItem>()
+{
+    new SelectListItem(){Value="1",Text="Ankara"},
+    new SelectListItem(){Value="2",Text="Bursa"},
+    new SelectListItem(){Value="3",Text="İstanbul"}
+}, new { @class = "color" })
+
+    <br />
+
+    @Html.DropDownListFor(t => t.Id, new List<SelectListItem>()
+{
+    new SelectListItem(){Value="1",Text="Ankara"},
+    new SelectListItem(){Value="2",Text="Bursa"},
+    new SelectListItem(){Value="3",Text="İstanbul"}
+}, "Lütfen Seçiniz")
+    <br />
+    @Html.DropDownListFor(t => t.Id, new List<SelectListItem>()
+{
+    new SelectListItem(){Value="1",Text="Ankara"},
+    new SelectListItem(){Value="2",Text="Bursa"},
+    new SelectListItem(){Value="3",Text="İstanbul"}
+}, new Dictionary<string, object>() { { "class", "renk" } })
+
+    <br />
+    @Html.DropDownListFor(t => t.Id, new List<SelectListItem>()
+{
+    new SelectListItem(){Value="1",Text="Ankara"},
+    new SelectListItem(){Value="2",Text="Bursa"},
+    new SelectListItem(){Value="3",Text="İstanbul"}
+}, "Lütfen Seçiniz", new { @class = "renk" })
+
+    <br />
+    @Html.DropDownListFor(t => t.Id, new List<SelectListItem>()
+{
+    new SelectListItem(){Value="1",Text="Ankara"},
+    new SelectListItem(){Value="2",Text="Bursa"},
+    new SelectListItem(){Value="3",Text="İstanbul"}
+}, "Lütfen Seçiniz", new Dictionary<string, object>() { { "class", "renk" } })
+</body>
+</html>

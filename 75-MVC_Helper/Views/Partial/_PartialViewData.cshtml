@@ -1,0 +1,16 @@
+﻿@*Gönderilen değer viewData dan okunabilir!!*@
+
+@model int?
+
+@{ 
+    foreach (var item in ViewData)
+    {
+    <div>
+        <label>item.key</label>
+        <label>item.Value</label>
+    </div>
+       
+    }
+}
+
+@Model

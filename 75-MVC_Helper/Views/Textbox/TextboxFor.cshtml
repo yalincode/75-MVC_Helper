@@ -1,0 +1,40 @@
+﻿@model _75_MVC_Helper.Models.Personal
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>TextboxFor</title>
+</head>
+<body>
+
+    @*1.Kullanımı*@
+    @*<textarea cols="20" id="NameAndSurname" name="NameAndSurname" rows="2">Yalın Sonat</textarea>*@
+    @*Bizden ekspression function ister*@
+    @Html.TextBoxFor(t0 => t0.NameAndSurname)
+
+    @*2.Kullanımı*@
+    @*id ve name attribute değerleri parametre*@
+    @*htmlattribute set etmek için bizden object tipinde nesne beklemektedir.*@
+    @Html.TextBoxFor(t0 => t0.NameAndSurname, new { @class = "renk", IReadOnlyCollection = "readonly" })
+
+    @*3.Kullanımı*@
+    @*format=>değeri formatlamak için kullanılır*@
+    @Html.TextBoxFor(t0=>t0.BirthDate,"{0:yyyy.MM.dd}")
+
+    @*4.Kullanımı*@
+    @*Dictionary şeklinde html attribute isteniyor*@
+    @Html.TextBoxFor(t0=>t0.NameAndSurname,new Dictionary<string, object> { { "style","color:green"} })
+
+    @*5.Kulanımı*@
+    @Html.TextBoxFor(t0=>t0.BirthDate,"{0:dd.MM.yyyy}",new {@style="color:green"})
+
+    @*6. Kullanımı*@
+    @Html.TextBoxFor(t0=>t0.BirthDate, "{0:dd.MM.yyyy}", new Dictionary<string, object> { { "style", "color:red" } })
+</body>
+</html>

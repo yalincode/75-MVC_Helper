@@ -1,0 +1,116 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>BeginForm</title>
+</head>
+<body>
+    @*Html.BeginForm()=> html deki form elementinin karşılığıdır.*@
+    @*1.Kullanımı*@
+    @*NOT: Bağlı bulunduğu Action ve Controller üzerinden hareket eder.*@
+
+    @using (Html.BeginForm())
+    {
+        <input type="submit" name="name" value="Post back yap" />
+
+    }
+    <br />
+    @*2. kullanımı
+        url üzerinden parametre olarak id gönderilmek istendiğinde new {id=1} eğer id parametresi gönderilmeyecekse null olarak işaretlenmelidir.*@
+
+    @using (Html.BeginForm(new { id = 1 }))
+    {
+        <input type="submit" name="name" value="Postback yap" />
+    }
+
+    @*3.Kullanımı*@
+    @*RouteValueDictionary => url üzerinden gönderilecek parametreleri RouteValueDictionary şeklinde verilmesi gerekir.*@
+    @using (Html.BeginForm(new RouteValueDictionary() { { "id", 1 } }))
+    {
+        <input type="submit" name="name" value="Postback yap" />
+    }
+
+    @*4.Kullanımı*@
+    @*actionName=> ilk parametre hangi action metoduna gitsin
+        controlerName=> 2. parametresi hangi contrallera gitsin*@
+    @using (Html.BeginForm("BeginForm", "BeginForm"))
+    {
+        <input type="submit" name="name" value="Postback yap" />
+    }
+    <br />
+
+
+    @*5.Kullanımı*@
+    @*actionName=> ilk parametre hangi action metoduna gitsin
+        controlerName=> 2. parametresi hangi contrallera gitsin*@
+    @*metot type bilgisini veriyoruz*@
+    @using (Html.BeginForm("BeginForm", "BeginForm", FormMethod.Post))
+    {
+        <input type="text" name="Adi" id="Adi" value="Deneme" />
+        <input type="submit" value="Postback yap" />
+    }
+    <br />
+
+    @*6.Kullanımı*@
+    @*actionName=> ilk parametre hangi action metoduna gitsin
+        controlerName=> 2. parametresi hangi contrallera gitsin*@
+    @*metot type bilgisini veriyoruz*@
+    @using (Html.BeginForm("BeginForm", "BeginForm", new { id = 1 }))
+    {
+        <input type="text" name="Adi" id="Adi" value="Deneme" />
+        <input type="submit" value="Postback yap" />
+    }
+
+    @*7.Kullanımı*@
+    @*actionName=> ilk parametre hangi action metoduna gitsin
+        controlerName=> 2. parametresi hangi contrallera gitsin*@
+    @*RouteValueDictionary=>şeklide url üstünde gidecek parametreleri gönderecek*@
+    @using (Html.BeginForm("BeginForm", "BeginForm", new RouteValueDictionary() { { "id", 1 } }))
+    {
+        <input type="text" name="Adi" id="Adi" value="Deneme" />
+        <input type="submit" value="Postback yap" />
+    }
+    <br />
+    @*8.Kullanımı*@
+    @*actionName=> ilk parametre hangi action metoduna gitsin
+        controlerName=> 2. parametresi hangi contrallera gitsin*@
+    @*RouteValueDictionary=>şeklide url üstünde gidecek parametreleri gönderecek*@
+    @using (Html.BeginForm("BeginForm", "BeginForm", FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+        <input type="text" name="Adi" id="Adi" value="Deneme" />
+        <input type="submit" value="Postback yap" />
+    }
+
+    @using (Html.BeginForm("BeginForm", "BeginForm", FormMethod.Post, new Dictionary<string, object>() { { "id", 1 } }))
+    {
+        <input type="text" name="Adi" id="Adi" value="Deneme" />
+        <input type="submit" value="Postback yap" />
+    }
+
+
+    @using (Html.BeginForm("BeginForm", "BeginForm", FormMethod.Post, new { id = 1 }))
+    {
+        <input type="text" name="Adi" id="Adi" value="Deneme" />
+        <input type="submit" value="Postback yap" />
+    }
+
+    @using (Html.BeginForm("BeginForm", "BeginForm", new RouteValueDictionary() { { "id", 1 } }, FormMethod.Post))
+    {
+        <input type="text" name="Adi" id="Adi" value="Deneme" />
+        <input type="submit" value="Postback yap" />
+    }
+
+    @using (Html.BeginForm("BeginForm", "BeginForm", new { id = 1 }, FormMethod.Post, new {@class="form-class"}))
+    {
+        <input type="text" name="Adi" id="Adi" value="Deneme" />
+        <input type="submit" value="Postback yap" />
+    }
+
+</body>
+</html>

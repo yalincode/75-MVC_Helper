@@ -1,0 +1,29 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Partial</title>
+</head>
+<body>
+    @*Html.Partial metodu, partial view i html encoded string olarak çözümler.Html.partial metodunun çıktısı string türünde değer döndürdüğü için değişkende sakşamabilir.*@
+
+    @*Kullanım olarak tanımlana partialview action controller içinde olmak zorunda değildir. Html.Action bizden bir action view ister fakat html.Partial istemez.*@
+
+   @*Controller tarafında bir actionı yoktur. ActionLink ile ayrıldığı nokta budur.*@
+    @Html.Partial("_Partial")
+    <br />
+
+    @Html.Partial("_Partial",35201)
+
+    @Html.Partial("_PartialViewData", new ViewDataDictionary() { { "Sayilar", 021564 }, { "Harfler","abcdge"} })
+
+    @Html.Partial("_PartialViewData",123, new ViewDataDictionary() { { "Sayilar", 021564 }, { "Harfler", "abcdge" } })
+    @*elimizde bir liste vardır onu viewdata dictionary üzerinden basabiliriz. Ve o listeden seçilecek bir değer vardır onu da 123 gibi tutabiliriz*@
+</body>
+</html>

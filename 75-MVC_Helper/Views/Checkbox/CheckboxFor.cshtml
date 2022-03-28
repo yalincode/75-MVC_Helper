@@ -1,0 +1,24 @@
+﻿
+@{
+    Layout = null;
+}
+@model _75_MVC_Helper.Models.Personal
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CheckboxFor</title>
+</head>
+<body>
+    @*1.Kullanımı*@
+    @Html.CheckBoxFor(t=>t.Gender)
+
+    @*2.Kullanımı*@
+    @Html.CheckBoxFor(t=>t.Gender,new { @class="renk"})
+
+    @*3.Kullanımı*@
+    @Html.CheckBoxFor(t=>t.Gender,new Dictionary<string, object>() { { "class","renk"} })
+
+</body>
+</html>

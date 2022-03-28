@@ -1,0 +1,75 @@
+﻿@model _75_MVC_Helper.Models.Personal
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Textbox</title>
+</head>
+<body>
+    <div>
+        @*1.Kullanımı*@
+        @*Name=> Model üstündeki prop adı*@
+        @*<input id="NameAndSurname" name="NameAndSurname" type="text" value="Yalın Sonat">*@
+        @Html.TextBox("NameAndSurname")
+
+        @*2.Kullanımı*@
+        @*Oluşturulan inputa değeri biz atarken kullanılır*@
+        @*value=>Textbox içerisinde gözükmesini istediği değer*@
+        @Html.TextBox("Test", "İçerisine parametre olarak basıldı")
+
+        @*3.Kullanım*@
+        @*Başına type ın @ koyularak html attribute olarak atama yapılabilir.*@
+        @*Name=> id ve name kısmına yazar*@
+        @*Value=>input value kısmına verirsini<*@
+        @*htmlAttribute=> input için geri kalan attributeları verirsiniz.*@
+        @Html.TextBox("test2", "test2 için değer verildi", new { @type = "number", @placeholder = "Deneme placeholder" })
+
+
+        @{
+            decimal parasal_deger = 4455613.6545m;
+        }
+        @*4.Kullanımı*@
+        @*Name=> id ve name kısmına yazar*@
+        @*Value=>input value kısmına verirsiniZ*@
+        @*FORMAT=> TEXTBOX İÇERİSİNDEKİ DEĞERİ FORMATLAYARAK GÖSTERİRİRİZ*@
+        @Html.TextBox("test3", DateTime.Now, "{0:yyyy/MM/dd}")
+        @Html.TextBox("TEST4", parasal_deger, "{0:C2}")
+        <br />
+        @*5.Kullanım*@
+        @*Name=> id ve name kısmına yazar*@
+        @*Value=>input value kısmına verirsiniZ*@
+        @*htmlAttribute=> Dictionary ile html attribute değeri verilebilir*@
+        @Html.TextBox("Test4", null, new Dictionary<string, object>() { { "id", "deneme" }, { "type", "email" }, { "placeholder", "yukselyal" } })
+
+        <style>
+            .renk {
+                color:red;
+            }
+        </style>
+        @{
+            var attribute = new { @class = "renk" };
+        }
+
+        @*6.Kullanım*@
+        @*htmlAttribute=> dictionary ile html attribute değerleri verilebilir.*@
+        @Html.TextBox("test5", parasal_deger, "{0:C}", new { @class = "renk" })
+        @Html.TextBox("test5", parasal_deger, "{0:C}", attribute)
+
+        @*7.kullanım*@
+        @*Name=> id ve name kısmına yazar*@
+        @*Value=>input value kısmına verirsiniZ*@
+        @*FORMAT=> TEXTBOX İÇERİSİNDEKİ DEĞERİ FORMATLAYARAK GÖSTERİRİRİZ*@
+        @*htmlAttribute=> dictionary ile html attribute değerleri verilebilir.*@
+        @Html.TextBox("test6", parasal_deger, "{0:C2}", new Dictionary<string, object>() { { "id", "deneme" } })
+
+
+
+    </div>
+</body>
+</html>

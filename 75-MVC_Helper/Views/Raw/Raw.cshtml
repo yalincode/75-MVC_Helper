@@ -1,0 +1,20 @@
+﻿
+@{
+    Layout = null;
+}
+@model _75_MVC_Helper.Models.Tasarim
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Raw</title>
+</head>
+<body>
+       @*Html.Raw() => web form tarafındaki literal kontrolün karşılığıdır. İçerisinde html kodlarını  encode edebilirsin*@
+
+    @Html.Raw(Model.Sayfa);
+
+    @Html.Raw("<div style='background-color:red;width:100px;height:100px;border:1px solid red;></div>'");
+</body>
+</html>

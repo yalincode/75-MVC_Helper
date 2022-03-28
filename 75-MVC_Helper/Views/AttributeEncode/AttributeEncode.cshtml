@@ -1,0 +1,21 @@
+﻿@model _75_MVC_Helper.Models.Personal
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AttributeEncode</title>
+</head>
+<body>
+    @*HtmlAttributeEncode, metodu sayfa içerisinde charset kullanmadan karakterleri Encode edebilirsiniz.*@
+    @Model.NameAndSurname
+
+    @*1.Kullanımı*@
+    @*1.Parametre => object olarak sizden bir parametre ister*@
+    @Html.AttributeEncode(Model.NameAndSurname)
+</body>
+</html>
